@@ -1,12 +1,7 @@
 import { useState } from "react";
+import { API_URL } from "../constants/globals";
+import { Message } from "../constants/types";
 import { useMessageStore } from "./useMessageStore";
-
-const API_URL = "https://api.openai.com/v1/chat/completions";
-
-export interface Message {
-  role: "user" | "assistant" | "system";
-  content: string;
-}
 
 export function useChatCompletion() {
   const [input, setInput] = useState("");
@@ -20,10 +15,11 @@ export function useChatCompletion() {
 
     const newMessage: Message = { content: input, role: "user" };
     addMessageToStore(newMessage);
-    console.log(messages);
 
     setInput("");
     setLoading(true);
+
+    const updatedMessages = [...messages, newMessage];
 
     try {
       const response = await fetch(API_URL, {
@@ -34,8 +30,8 @@ export function useChatCompletion() {
         },
         body: JSON.stringify({
           model: "gpt-4o-mini",
-          messages: messages.map((msg) => ({
-            role: msg.role === "user" ? "user" : "assistant",
+          messages: updatedMessages.map((msg) => ({
+            role: msg.role,
             content: msg.content,
           })),
         }),

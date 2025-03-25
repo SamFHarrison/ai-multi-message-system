@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { SYSTEM_PROMPT } from "../constants/data";
-import { Message } from "./useChatCompletion";
+import { Message } from "../constants/types";
 
 export interface MessageStore {
   messages: Message[];
