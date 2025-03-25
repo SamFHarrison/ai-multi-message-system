@@ -25,3 +25,5 @@ This is my first theoretical possible solution:
 >    - If the AI has structured replies into multiple messages, send each message at random intervals between 3.00 and 8.00 seconds apart
 
 I feel like many features can be built on top of a few steps. For example, the random timings in Step 6 could be altered to respond more human-like to the behaviour of the user - like if the user stays on the messaging screen then maybe the agent can assume taht the user wants to keep the conversation going right now and can therefore deliver the message instantly.
+
+It's also worth mentioning rn that these timings and ideas are based off of pure f\*cking guess work atm, so don't @ me about what pshycology papers I've got my data from... yet.
