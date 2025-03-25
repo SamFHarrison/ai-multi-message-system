@@ -1,54 +1,27 @@
-# React + TypeScript + Vite
+# Trying to make AI more human-like in conversation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I'm trying to implement the ability to have the user and agent send multiple messages, because let's face it, in reality, when was the last conversation you had with someone that was strict a 1:1 message back-n-forth?
 
-Currently, two official plugins are available:
+## Notes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### 25th March 2025
 
-## Expanding the ESLint configuration
+I've got the OpenAI API hooked up in a basic functions.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This is my first theoretical possible solution:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+> Firstly, make sure that the system prompt explains to the agent that if they want to send multiple messages to the user, they must separate them in the response somehow - maybe with a double line break
+>
+> 1. User sends a message in the UI
+> 2. If the user's message preview stays idle for 10 seconds, client sends message to BE
+>    - If user starts typing and/or sends a message, reset the 10 second timer
+> 3. BE sends message to AI
+> 4. BE receives response from AI
+> 5. BE serves agents message to client
+> 6. Client holds message for random time between X and Y minutes
+> 7. Client hydrates the UI (sending the message to the user)
+>    - If the user has content in their message preview, client waits until the user has had an empty preview for 20 consecutive seconds before hydrating the UI
+>    - If user sends a new message before hydration, go back to step 2
+>    - If the AI has structured replies into multiple messages, send each message at random intervals between 3.00 and 8.00 seconds apart
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+I feel like many features can be built on top of a few steps. For example, the random timings in Step 6 could be altered to respond more human-like to the behaviour of the user - like if the user stays on the messaging screen then maybe the agent can assume taht the user wants to keep the conversation going right now and can therefore deliver the message instantly.
