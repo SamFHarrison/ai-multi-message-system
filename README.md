@@ -35,3 +35,7 @@ Did a bit of work on the whiteboard last night to help me visualise the system, 
 ![System diagram on a whiteboard](./system-diagram-v2.png)
 
 Also, I asked GPT-4o to do some Deep Research on human messaging patterns (bit of HCI goodness). [The research paper it delivered](https://chatgpt.com/share/67e72518-895c-8000-87a1-e7aaab2da431) was nothing short of remarkable tbf. I think I can use these findings to influence the interactions of this multi-message-flowing-human-like system (really need to think of a name for it - could be worse I suppose, could have some cache to invalidate).
+
+> EDIT: I've just used [excalidraw](https://excalidraw.com/#json=DzeATzdAO46U7joR384XF,dL7MMSPhFEqgZfoWkjPhvg) to digitise the diagram so it's easier to read
+
+![System diagram on a whiteboard](./system-diagram-v3.png)
