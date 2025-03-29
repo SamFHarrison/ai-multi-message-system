@@ -38,4 +38,4 @@ Also, I asked GPT-4o to do some Deep Research on human messaging patterns (bit o
 
 > EDIT: I've just used [excalidraw](https://excalidraw.com/#json=DzeATzdAO46U7joR384XF,dL7MMSPhFEqgZfoWkjPhvg) to digitise the diagram so it's easier to read
 
-![System diagram on a whiteboard](./system-diagram-v3.png)
+![Digitised system diagram](./system-diagram-v3.png)
