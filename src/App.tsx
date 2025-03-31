@@ -10,12 +10,12 @@ function App() {
       <div className="card-header">
         {messages.map((msg, index) =>
           index === 0 ? null : (
-            <div key={index} className="message">
+            <div key={index} className={`message ${msg.role}`}>
               {msg.content}
             </div>
           )
         )}
-        {loading && <div className="message assistant">Typing...</div>}
+        {/* {loading && <div className="message assistant">Typing...</div>} */}
       </div>
       <form className="input-wrapper">
         <input

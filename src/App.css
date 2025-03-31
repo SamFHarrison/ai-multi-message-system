@@ -1,5 +1,7 @@
 #root {
-  margin: auto auto 0;
+  /* margin: 0; */
+  width: 100vw;
+  height: 100vh;
   padding: 2rem;
   text-align: center;
 }
@@ -7,8 +9,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 500px;
-  margin: 0 auto;
+  height: 100%;
+  width: 450px;
   padding: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -20,14 +22,31 @@
   overflow-y: auto;
   height: 250px;
   padding: 8px;
-  border-bottom: 1px solid #ccc;
+  align-content: flex-end;
 }
 
 .message {
-  padding: 8px;
-  margin: 4px 0;
+  display: flex;
+  padding: 8px 16px;
+  margin: 12px 0;
   border-radius: 4px;
   background-color: #007bff;
+  width: fit-content;
+  max-width: 400px;
+
+  &.assistant {
+    background-color: #f1f1f1;
+    color: #000;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  &.user {
+    background-color: #007bff;
+    color: white;
+    margin-left: auto;
+    text-align: right;
+  }
 }
 
 .input-wrapper {
@@ -44,6 +63,7 @@
 }
 
 .button {
+  width: 100px;
   padding: 8px;
   background-color: #007bff;
   color: white;
